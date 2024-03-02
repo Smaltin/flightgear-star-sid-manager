@@ -20,7 +20,7 @@ jobs:
       - id: should_run
         continue-on-error: true
         name: check for new airac
-        run: DATE="$(date +"%y%m%d")"; echo "Today is $DATE"; curl --fail -I -s "https://aeronav.faa.gov/Upload_313-d/cifp/CIFP_${DATE}.zip" > /dev/null || echo "should_run=true" >> $GITHUB_OUTPUT
+        run: DATE="240321"; echo "Today is $DATE"; curl --fail -I -s "https://aeronav.faa.gov/Upload_313-d/cifp/CIFP_${DATE}.zip" > /dev/null || echo "should_run=true" >> $GITHUB_OUTPUT
 
   run:
     needs: check_cycle
