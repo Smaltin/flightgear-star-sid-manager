@@ -20,7 +20,7 @@ jobs:
       - id: should_run
         continue-on-error: true
         name: check for new airac
-        run: curl --fail -I -s "https://aeronav.faa.gov/Upload_313-d/cifp/CIFP_240321.zip" > /dev/null || echo "should_run=true" >> $GITHUB_OUTPUT
+        run: curl --fail -I -s "https://aeronav.faa.gov/Upload_313-d/cifp/CIFP_240125.zip" > /dev/null || echo "should_run=true" >> $GITHUB_OUTPUT
 
   run:
     needs: check_cycle
@@ -39,7 +39,7 @@ jobs:
           node-version: 12
 
       - name: get new cifp
-        run: wget "https://aeronav.faa.gov/Upload_313-d/cifp/CIFP_240321.zip" && unzip -o "CIFP_240321.zip" FAACIFP18 -d current_cifp
+        run: wget "https://aeronav.faa.gov/Upload_313-d/cifp/CIFP_240125.zip" && unzip -o "CIFP_240125.zip" FAACIFP18 -d current_cifp
 
       - name: get apt.dat
         run: wget "https://gitlab.com/flightgear/fgdata/-/raw/release/2020.3/Airports/apt.dat.gz" && gunzip -f apt.dat.gz
